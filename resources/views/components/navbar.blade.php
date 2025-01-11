@@ -46,10 +46,6 @@
             <div class="hidden md:flex space-x-4">
                 <a href="/"
                     class="px-3 py-2 rounded-full text-sm font-medium {{ Request::is('/') ? 'bg-gray-700' : 'hover:bg-gray-700' }}">Home</a>
-                @if (!auth()->check())
-                    <a href="/contact"
-                        class="px-3 py-2 rounded-full text-sm font-medium {{ Request::is('contact') ? 'bg-gray-700' : 'hover:bg-gray-700' }}">Contact</a>
-                @endif
 
                 @if (auth()->check())
                     <a href="{{ route('products.index') }}"
