@@ -13,11 +13,28 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        User::create([
+            'name' => 'irez',
+            'email' => 'me@rezweb.my.id',
+            'password' => bcrypt('password'),
+            'email_verified_at' => now(),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        $this->call([
+            ApparelSizeSeeder::class,
+            ProductSeeder::class,
+            ColorSeeder::class,
+            CategorySeeder::class,
+            ProductCategorySeeder::class,  // Jangan lupa tambahkan ke sini!
+        ]);
+
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        // User::factory()->create([
+        //     'name' => 'Test User',
+        //     'email' => 'test@example.com',
+        // ]);
     }
 }
