@@ -27,11 +27,42 @@
             </label>
         </div>
 
-        <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg:gap-6 gap-3 px-2 lg:px-6" id="movies-container">
+        <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg:gap-6 gap-3 px-2 lg:px-6">
+            @forelse ($products as $item)
+                <div class="bg-white shadow-lg rounded-2xl overflow-hidden movie-item">
+                    <img src="https://images.unsplash.com/photo-1523381294911-8d3cead13475?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3"
+                        alt="{{ $item->product_name }}"
+                        class="w-80 object-cover transition duration-500 ease-in-out hover:scale-90 hover:rounded-lg">
+                    <div class="p-4">
+                        <a href="{{ url('/detail/' . $item->product_id) }}" class="block">
+                            <h2
+                                class="lg:text-xl text-lg font-semibold text-gray-900 hover:text-blue-600 transition duration-200 ease-in-out min-h-14 mb-2">
+                                {{ $item->product_name }}
+                            </h2>
+                            <p class="font-medium text-gray-800 mt-2">Kategori:
+                                @foreach ($item->categories as $category)
+                                    <span class="text-gray-600">{{ $category->category_name }}, </span>
+                                @endforeach
+                            </p>
+                            <p class="text-sm text-gray-500 mt-2">{{ $item->created_at }}</p>
+                            <div class="flex items-center mt-2 mb-2">
+                                <span class="text-blue-600 font-semibold">Size:</span>
+                                <span class="ml-1">{{ $item->size_id }}</span>
+                            </div>
+                            <a href="{{ url('/detail/' . $item->product_id) }}"
+                                class="btn btn-primary ml-auto rounded-full btn-sm md:text-md text-xs">Lihat
+                                Selengkapnya</a>
+                        </a>
+                    </div>
+                </div>
+            @empty
+                <h3>Maaf Data Tidak Ditemukan</h3>
+            @endforelse
+
         </div>
         <div class="flex justify-center items-center">
-            <a href="{{ url('/movies?q=all') }}" class="btn btn-primary mt-6 text-white text-center rounded-full">Lihat Lebih Banyak</a>
+            <a href="{{ url('/movies?q=all') }}" class="btn btn-primary mt-6 text-white text-center rounded-full">Lihat
+                Lebih Banyak</a>
         </div>
     </div>
 @endsection
-

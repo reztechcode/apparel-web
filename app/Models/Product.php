@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     protected $table = 'products';
+    protected $primaryKey = 'product_id';
 
     protected $fillable = [
         'product_name',
@@ -23,6 +24,7 @@ class Product extends Model
     {
         return $this->belongsToMany(Color::class, 'product_colors', 'product_id', 'color_id');
     }
+
 
     public function categories()
     {
