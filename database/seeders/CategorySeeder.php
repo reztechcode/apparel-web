@@ -26,5 +26,6 @@ class CategorySeeder extends Seeder
             'category_name' => 'Jeans',
             'parent_category_id' => $parentCategory->id,
         ]);
+        Category::factory(1)->create();
     }
 }

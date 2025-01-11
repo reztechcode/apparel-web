@@ -32,5 +32,6 @@ class ApparelSizeSeeder extends Seeder
             'size_code' => 'XL',
             'sort_order' => 4,
         ]);
+        ApparelSize::factory(1)->create();
     }
 }

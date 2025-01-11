@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use App\Models\Color;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -15,12 +14,12 @@ class ColorFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    protected $model = Color::class;
 
     public function definition()
     {
         return [
-            'color_name' => $this->faker->colorName(),
+            'color_code' => $this->faker->unique()->hexColor(),
+            'color_name' => $this->faker->word(),
         ];
     }
 }

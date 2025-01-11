@@ -22,5 +22,6 @@ class ProductCategorySeeder extends Seeder
             'product_id' => 2,
             'category_id' => 2,
         ]);
+        ProductCategory::factory(1)->create();
     }
 }

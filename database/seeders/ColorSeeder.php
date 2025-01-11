@@ -27,5 +27,6 @@ class ColorSeeder extends Seeder
             'color_code' => 'green',
             'color_name' => 'Green',
         ]);
+        Color::factory(1)->create();
     }
 }

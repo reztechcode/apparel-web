@@ -30,5 +30,6 @@ class ProductSeeder extends Seeder
             'other_data' => 'Data tambahan produk C',
             'size_id' => 3,
         ]);
+        Product::factory(1)->create();
     }
 }
