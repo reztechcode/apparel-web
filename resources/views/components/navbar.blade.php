@@ -46,10 +46,19 @@
             <div class="hidden md:flex space-x-4">
                 <a href="/"
                     class="px-3 py-2 rounded-full text-sm font-medium {{ Request::is('/') ? 'bg-gray-700' : 'hover:bg-gray-700' }}">Home</a>
-                <a href="/about"
-                    class="px-3 py-2 rounded-full text-sm font-medium {{ Request::is('about') ? 'bg-gray-700' : 'hover:bg-gray-700' }}">About</a>
-                <a href="/contact"
-                    class="px-3 py-2 rounded-full text-sm font-medium {{ Request::is('contact') ? 'bg-gray-700' : 'hover:bg-gray-700' }}">Contact</a>
+                @if (!auth()->check())
+                    <a href="/contact"
+                        class="px-3 py-2 rounded-full text-sm font-medium {{ Request::is('contact') ? 'bg-gray-700' : 'hover:bg-gray-700' }}">Contact</a>
+                @endif
+
+                @if (auth()->check())
+                    <a href="{{ route('products.index') }}"
+                       class="px-3 py-2 rounded-full text-sm font-medium {{ Request::is('admin/products*') ? 'bg-gray-700' : 'hover:bg-gray-700' }}">
+                      Produk
+                    </a>
+                @endif
+
+
                 <a href="{{ auth()->check() ? '/admin/dashboard' : '/auth/login' }}"
                     class="px-3 py-2 rounded-full bg-white  text-black text-sm font-semibold {{ Request::is('auth/login') ? 'bg-gray-700' : 'hover:bg-gray-700' }}">{{ auth()->check() ? 'Dashboard' : 'Login' }}</a>
             </div>

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class ApparelSize extends Model
 {
     protected $table = 'apparel_sizes';
+    protected $primaryKey = 'size_id';
 
     protected $fillable = [
         'size_code',
