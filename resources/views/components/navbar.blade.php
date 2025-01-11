@@ -56,6 +56,10 @@
                        class="px-3 py-2 rounded-full text-sm font-medium {{ Request::is('admin/products*') ? 'bg-gray-700' : 'hover:bg-gray-700' }}">
                       Produk
                     </a>
+                    <a href="{{ route('categories.index') }}"
+                       class="px-3 py-2 rounded-full text-sm font-medium {{ Request::is('admin/categories*') ? 'bg-gray-700' : 'hover:bg-gray-700' }}">
+                      Kategori
+                    </a>
                 @endif
 
 
