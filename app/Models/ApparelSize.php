@@ -3,9 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class ApparelSize extends Model
 {
+    use HasFactory;
     protected $table = 'apparel_sizes';
     protected $primaryKey = 'size_id';
 
