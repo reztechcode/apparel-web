@@ -21,7 +21,7 @@
     <main>
         @yield('content')
     </main>
-    @if (!Route::prefix('admin'))
+    @if (!Request::is('admin*'))
         @include('components.footer')
     @endif
     @stack('js')
