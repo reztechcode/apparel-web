@@ -60,6 +60,10 @@
                        class="px-3 py-2 rounded-full text-sm font-medium {{ Request::is('admin/categories*') ? 'bg-gray-700' : 'hover:bg-gray-700' }}">
                       Kategori
                     </a>
+                    <a href="{{ route('colors.index') }}"
+                       class="px-3 py-2 rounded-full text-sm font-medium {{ Request::is('admin/colors*') ? 'bg-gray-700' : 'hover:bg-gray-700' }}">
+                      Warna
+                    </a>
                 @endif
 
 
