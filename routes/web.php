@@ -12,7 +12,7 @@ Route::get('/', function () {
 });
 
 Route::controller(HomeController::class)->group(function () {
-    Route::get('/', 'index')->name('movie.index');
+    Route::get('/', 'index')->name('home.index');
 });
 
 Route::controller(AuthController::class)->group(function () {

@@ -16,16 +16,18 @@
         <h1 class="lg:text-3xl text-xl font-bold text-center text-gray-800 leading-tight mt-12 mb-8">
             Temukan Produk Anda dengan Mudah disini
         </h1>
-        <div class="flex items-center justify-center mb-8 lg:p-0 px-3">
-            <label class="input input-bordered flex items-center gap-2 rounded-3xl lg:w-1/2 w-full ">
-                <input id="search-input" type="text" class="grow p-2" placeholder="Cari Film Favorit Kamu" />
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="h-4 w-4 opacity-70">
-                    <path fill-rule="evenodd"
-                        d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
-                        clip-rule="evenodd" />
-                </svg>
-            </label>
-        </div>
+        <form action="{{ route('home.index') }}" method="GET">
+            <div class="flex items-center justify-center mb-8 lg:p-0 px-3">
+                <label class="input input-bordered flex items-center gap-2 rounded-3xl lg:w-1/2 w-full ">
+                    <input id="search-input" type="text" name="search" class="grow p-2" placeholder="Cari Film Favorit Kamu" />
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="h-4 w-4 opacity-70">
+                        <path fill-rule="evenodd"
+                            d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </label>
+            </div>
+        </form>
 
         <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg:gap-6 gap-3 px-2 lg:px-6">
             @forelse ($products as $item)
@@ -47,7 +49,7 @@
                             <p class="text-sm text-gray-500 mt-2">{{ $item->created_at }}</p>
                             <div class="flex items-center mt-2 mb-2">
                                 <span class="text-blue-600 font-semibold">Size:</span>
-                                <span class="ml-1">{{ $item->size_id }}</span>
+                                <span class="ml-1">{{ $item->size->size_code }}</span>
                             </div>
                             <a href="{{ url('/detail/' . $item->product_id) }}"
                                 class="btn btn-primary ml-auto rounded-full btn-sm md:text-md text-xs">Lihat
@@ -61,7 +63,7 @@
 
         </div>
         <div class="flex justify-center items-center">
-            <a href="{{ url('/movies?q=all') }}" class="btn btn-primary mt-6 text-white text-center rounded-full">Lihat
+            <a href="{{ url('#') }}" class="btn btn-primary mt-6 text-white text-center rounded-full">Lihat
                 Lebih Banyak</a>
         </div>
     </div>
